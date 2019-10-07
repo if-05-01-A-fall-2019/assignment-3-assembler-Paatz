@@ -1,0 +1,60 @@
+"Geben Sie die maximale Punkteanzahl ein:Geben Sie Ihre Punkteanzahl ein:Sie haben% erreicht"
+inc 20
+
+#maxpoints
+lit 0
+lit 40
+lit 41
+out 2
+
+la 0 32
+la 0 36
+in 0
+
+out 3
+
+#user's points
+lit 40
+lit 32
+lit 33
+out 2
+
+la 0 40
+la 0 44
+in 0
+
+out 3
+
+#calculation
+la 0 48
+lv 0 40
+lit 100
+mul
+lv 0 32
+div
+sto
+
+out 3
+
+lit 72
+lit 9
+lit 10
+out 2
+
+lv 0 48
+lit 1
+out 0
+
+lit 81
+lit 10
+lit 10
+out 2
+
+out 3
+
+halt
+
+
+
+
+

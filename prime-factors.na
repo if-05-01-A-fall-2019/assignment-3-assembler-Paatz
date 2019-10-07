@@ -1,0 +1,90 @@
+# The  "Prime Factor"
+"Enter int:Error!"
+inc 12
+
+#print "enter int"
+lit 0
+lit 10
+lit 11
+out 2
+
+#enter number
+la 0 32
+la 0 36
+in 0
+
+#if number is negative
+lv 0 36
+lit 1
+rel 0             #number < 0?
+tjmp .negative    #go to .negative if true
+lv 0 32
+lit 1
+rel 2
+tjmp .one         #go to Prime 1
+
+#sto first prime
+la 0 36
+lit 2
+sto
+jmp .nextPrime
+halt
+
+.nextPrime
+lv 0 32 #int
+lv 0 36 #first prime
+mod
+lit 0
+rel 2              #int%prime == 0
+fjmp .prime
+
+#divide number by prime
+la 0 32
+lv 0 32
+lv 0 36
+div
+sto
+
+#print
+lv 0 36
+lit 1
+out 0
+out 3
+
+la 0 40
+lit 2
+sto
+lv 0 32
+lit 1
+rel 2
+tjmp .end
+jmp .nextPrime
+halt
+
+.prime
+la 0 36
+lv 0 36
+lit 1
+add
+sto
+jmp .nextPrime      #go back to searching primes
+
+#print 1
+.one
+lit 1
+lit 1
+out 0
+out 3
+jmp .end
+
+#Print error
+.negative
+lit 10
+lit 15
+lit 16
+out 2
+
+.end
+out 3
+
+halt
